@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JposEntries PUBLIC "-//JavaPOS//DTD//EN"
+                             "jpos/res/jcl.dtd">
+<JposEntries>
+<!--Saved by JavaPOS jpos.config/loader (JCL) version 2.1.0-RC3 on 2008/6/13 下午 1:20-->
+    
+    <JposEntry logicalName="BR Demo">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.BrService"/>
+        <vendor name="Posiflex" url="http://www.posiflex.com.tw"/>
+        <jpos category="BarcodeScanner" version="1.7"/>
+        <product description="Posiflex Barcode Scanner" name="Posiflex Barcode Scanner" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+	<prop name="Model" type="String" value="CD2860"/>
+        <prop name="portName" type="String" value="/dev/ttyS0"/>
+        <prop name="deviceBus" type="String" value="Serial"/>
+        <prop name="baudRate" type="String" value="9600"/>
+        <prop name="dataBits" type="String" value="8"/>
+        <prop name="parity" type="String" value="None"/>
+        <prop name="stopBits" type="String" value="1"/>
+        <prop name="flowControl" type="String" value="Hardware"/>
+	</JposEntry>
+    
+    
+    <JposEntry logicalName="CR Demo">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.CrService"/>
+        <vendor name="Posiflex" url="http://www.posiflex.com.tw"/>
+        <jpos category="CashDrawer" version="1.7"/>
+        <product description="Posiflex Cash Drawer" name="Posiflex Cash Drawer" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+        <prop name="openCode" type="String" value="CR1"/>
+        <prop name="portName" type="String" value="/dev/ttyS0"/>
+        <prop name="deviceBus" type="String" value="Serial"/>
+        <prop name="baudRate" type="String" value="9600"/>
+        <prop name="parity" type="String" value="None"/>
+        <prop name="dataBits" type="String" value="8"/>
+        <prop name="stopBits" type="String" value="1"/>
+        <prop name="flowControl" type="String" value="Hardware"/>
+	</JposEntry>
+
+
+    <JposEntry logicalName="LD Demo">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.LdService"/>
+        <vendor name="Posiflex" url="http://www.posiflex.com.tw"/>
+        <jpos category="LineDisplay" version="1.7"/>
+        <product description="Posiflex Line Display" name="Posiflex Line Display" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+	<prop name="Model" type="String" value="PD2XXX"/>
+        <prop name="deviceBus" type="String" value="Serial"/>
+        <prop name="portName" type="String" value="/dev/ttyS0"/>
+        <prop name="baudRate" type="String" value="9600"/>
+        <prop name="parity" type="String" value="None"/>
+        <prop name="dataBits" type="String" value="8"/>
+        <prop name="stopBits" type="String" value="1"/>
+        <prop name="flowControl" type="String" value="Hardware"/>
+        <prop name="sleep" type="String" value="800"/>
+        <prop name="Language" type="String" value="English"/>
+	</JposEntry>
+    
+    
+    <JposEntry logicalName="MR Demo">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.MrService"/>
+        <vendor name="Posiflex" url="http://www.posiflex.com.tw"/>
+        <jpos category="MSR" version="1.7"/>
+        <product description="Posiflex MSR" name="Posiflex MSR" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+        <prop name="deviceBus" type="String" value="KB"/>
+        <prop name="portName" type="String" value="KB"/>
+        <prop name="JIS2" type="String" value="NO"/>
+        <prop name="sleep" type="String" value="800"/>
+	</JposEntry>
+    
+    
+    <JposEntry logicalName="PP Demo">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.PpService"/>
+        <vendor name="Posiflex Inc." url="http://www.posiflex.com.tw"/>
+        <jpos category="POSPrinter" version="1.7"/>
+        <product description="Posiflex POS Printer" name="Posiflex POS Printer" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+	<prop name="Model" type="String" value="PP6800"/>
+        <prop name="deviceBus" type="String" value="Parallel"/>
+        <prop name="portName" type="String" value="/dev/lp0"/>
+        <prop name="baudRate" type="String" value="115200"/>
+        <prop name="parity" type="String" value="None"/>
+        <prop name="dataBits" type="String" value="8"/>
+        <prop name="stopBits" type="String" value="1"/>
+        <prop name="flowControl" type="String" value="Hardware"/>
+        <prop name="Language" type="String" value="English"/>
+        <prop name="sleep" type="String" value="800"/>
+	</JposEntry>
+
+
+    <JposEntry logicalName="aCR Demo">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.CrService"/>
+        <vendor name="Posiflex" url="http://www.posiflex.com.tw"/>
+        <jpos category="CashDrawer" version="1.7"/>
+        <product description="Posiflex Cash Drawer" name="Posiflex Cash Drawer" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+        <prop name="deviceBus" type="String" value="Parallel"/>
+        <prop name="portName" type="String" value="/dev/lp0"/>
+        <prop name="lptMode" type="String" value=""/>
+        <prop name="openCode" type="String" value="PPCR1"/>
+        <prop name="sleep" type="String" value="800"/>
+	</JposEntry>
+    
+
+    <JposEntry logicalName="CR Demo U">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.CrService"/>
+        <vendor name="Posiflex" url="http://www.posiflex.com.tw"/>
+        <jpos category="CashDrawer" version="1.7"/>
+        <product description="Posiflex Cash Drawer" name="Posiflex Cash Drawer" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+        <prop name="deviceBus" type="String" value="USB"/>
+	<prop name="openCode" type="String" value="1"/>
+        <prop name="sleep" type="String" value="800"/>
+	</JposEntry>
+
+
+    <JposEntry logicalName="LD Demo U">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.LdService"/>
+        <vendor name="Posiflex" url="http://www.posiflex.com.tw"/>
+        <jpos category="LineDisplay" version="1.7"/>
+        <product description="Posiflex Line Display" name="Posiflex Line Display" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+	<prop name="Model" type="String" value="PD3xx"/>
+        <prop name="deviceBus" type="String" value="USB"/>
+        <prop name="sleep" type="String" value="800"/>
+        <prop name="Language" type="String" value="English"/>
+	</JposEntry>
+
+    
+    <JposEntry logicalName="aPP Demo">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.PpService"/>
+        <vendor name="Posiflex Inc." url="http://www.posiflex.com.tw"/>
+        <jpos category="POSPrinter" version="1.7"/>
+        <product description="Posiflex POS Printer" name="Posiflex POS Printer" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+	<prop name="Model" type="String" value="PP6800"/>
+        <prop name="deviceBus" type="String" value="Parallel"/>
+        <prop name="portName" type="String" value="/dev/lp0"/>
+        <prop name="lptMode" type="String" value="ECP"/>
+        <prop name="sleep" type="String" value="800"/>
+        <prop name="Language" type="String" value="English"/>
+        <prop name="RecLineChars" type="String" value="56"/>
+	</JposEntry>
+    
+    
+    <JposEntry logicalName="PP56 Demo">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.PpService"/>
+        <vendor name="Posiflex Inc." url="http://www.posiflex.com.tw"/>
+        <jpos category="POSPrinter" version="1.7"/>
+        <product description="Posiflex POS Printer" name="Posiflex POS Printer" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+	<prop name="Model" type="String" value="PP5600"/>
+        <prop name="deviceBus" type="String" value="Serial"/>
+        <prop name="portName" type="String" value="/dev/ttyS0"/>
+        <prop name="baudRate" type="String" value="9600"/>
+        <prop name="parity" type="String" value="None"/>
+        <prop name="dataBits" type="String" value="8"/>
+        <prop name="stopBits" type="String" value="1"/>
+        <prop name="flowControl" type="String" value="Hardware"/>
+        <prop name="Language" type="String" value="English"/>
+        <prop name="sleep" type="String" value="800"/>
+	</JposEntry>
+    
+
+    <JposEntry logicalName="defaultScanner">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.BrService"/>
+        <vendor name="Posiflex" url="http://www.posiflex.com.tw"/>
+        <jpos category="BarcodeScanner" version="1.7"/>
+        <product description="Posiflex Barcode Scanner" name="Posiflex Barcode Scanner" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+	<prop name="Model" type="String" value="CD2860"/>
+        <prop name="portName" type="String" value="/dev/ttyS0"/>
+        <prop name="deviceBus" type="String" value="Serial"/>
+        <prop name="baudRate" type="String" value="9600"/>
+        <prop name="dataBits" type="String" value="8"/>
+        <prop name="parity" type="String" value="None"/>
+        <prop name="stopBits" type="String" value="1"/>
+        <prop name="flowControl" type="String" value="Hardware"/>
+	</JposEntry>
+
+    
+    <JposEntry logicalName="defaultCashDrawer">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.CrService"/>
+        <vendor name="Posiflex" url="http://www.posiflex.com.tw"/>
+        <jpos category="CashDrawer" version="1.7"/>
+        <product description="Posiflex Cash Drawer" name="Posiflex Cash Drawer" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+        <prop name="openCode" type="String" value="CR1"/>
+        <prop name="portName" type="String" value="/dev/ttyS0"/>
+        <prop name="deviceBus" type="String" value="Serial"/>
+        <prop name="baudRate" type="String" value="9600"/>
+        <prop name="parity" type="String" value="None"/>
+        <prop name="dataBits" type="String" value="8"/>
+        <prop name="stopBits" type="String" value="1"/>
+        <prop name="flowControl" type="String" value="Hardware"/>
+	</JposEntry>
+
+
+    <JposEntry logicalName="defaultLineDisplay">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.LdService"/>
+        <vendor name="Posiflex" url="http://www.posiflex.com.tw"/>
+        <jpos category="LineDisplay" version="1.7"/>
+        <product description="Posiflex Line Display" name="Posiflex Line Display" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+	<prop name="Model" type="String" value="PD3X"/>
+        <prop name="deviceBus" type="String" value="Serial"/>
+        <prop name="portName" type="String" value="/dev/ttyS0"/>
+        <prop name="baudRate" type="String" value="9600"/>
+        <prop name="parity" type="String" value="None"/>
+        <prop name="dataBits" type="String" value="8"/>
+        <prop name="stopBits" type="String" value="1"/>
+        <prop name="flowControl" type="String" value="Hardware"/>
+        <prop name="sleep" type="String" value="800"/>
+        <prop name="Language" type="String" value="English"/>
+	</JposEntry>
+
+
+    <JposEntry logicalName="defaultMSR">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.MrService"/>
+        <vendor name="Posiflex" url="http://www.posiflex.com.tw"/>
+        <jpos category="MSR" version="1.7"/>
+        <product description="Posiflex MSR" name="Posiflex MSR" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+        <prop name="deviceBus" type="String" value="KB"/>
+        <prop name="portName" type="String" value="KB"/>
+        <prop name="JIS2" type="String" value="NO"/>
+        <prop name="sleep" type="String" value="800"/>
+	</JposEntry>
+    
+    
+    <JposEntry logicalName="defaultPOSPrinter">
+        <creation factoryClass="posiflex.jpos.Factory" serviceClass="posiflex.jpos.PpService"/>
+        <vendor name="Posiflex Inc." url="http://www.posiflex.com.tw"/>
+        <jpos category="POSPrinter" version="1.7"/>
+        <product description="Posiflex POS Printer" name="Posiflex POS Printer" url="http://www.posiflex.com.tw"/>
+
+        <!--Other non JavaPOS required property (mostly vendor properties and bus specific properties i.e. Serial )-->
+	<prop name="Model" type="String" value="PP6800"/>
+        <prop name="deviceBus" type="String" value="Parallel"/>
+        <prop name="portName" type="String" value="/dev/lp0"/>
+        <prop name="baudRate" type="String" value="115200"/>
+        <prop name="parity" type="String" value="None"/>
+        <prop name="dataBits" type="String" value="8"/>
+        <prop name="stopBits" type="String" value="1"/>
+        <prop name="flowControl" type="String" value="Hardware"/>
+        <prop name="Language" type="String" value="English"/>
+        <prop name="sleep" type="String" value="800"/>
+       	</JposEntry>
+    
+
+</JposEntries>

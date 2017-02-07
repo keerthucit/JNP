@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Openbravo POS is a point of sales application designed for touch screens.
+    Copyright (C) 2007-2009 Openbravo, S.L.
+    http://sourceforge.net/projects/openbravopos
+
+    This file is part of Openbravo POS.
+
+    Openbravo POS is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Openbravo POS is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Openbravo POS.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<output>
+
+    <ticket>
+       <line></line>
+	<line>
+
+            <text align="center" length="12">${ticket.printSysDate()}</text>
+	    <text length="5" align="left"></text>
+            <text length="6" align="center">${ticket.printTime()}</text>
+            <text length="30" align="left"></text>
+  	    <text align="left" length="12">${ticket.printShowDate()}</text>
+            <text align="center" length="12">${showinfo.printStarttime()}</text>
+        </line>
+  	<line></line>
+<line></line>
+        <line>
+
+            <text align ="left" length="25" >Ticket Category</text>
+	    <text length="15" align="left"></text>
+            <text align ="left" length="10">Seats</text>
+            <text align ="right" length="29">Price</text>
+        </line>
+
+        #foreach ($ticketline in $ticket.getLines())
+
+        <line>
+
+            #if ($ticketline.isProductCom())
+                <text align ="left" length="25">*${ticketline.printName()}</text>
+            #else
+                <text align ="left" length="25">${ticketline.printName()}</text>
+            #end
+	    <text length="15" align="left"></text>
+            <text align ="left" length="10">${ticketline.printMultiply()}</text>
+            <text align ="right" length="29">${ticketline.printSubValue()}</text>
+        </line>
+        #if ($ticketline.productAttSetInstId)
+        <line>
+	        <text align ="left" length="42">${ticketline.productAttSetInstDesc}</text>
+        </line>
+        #end
+        #end
+        <line>
+            <text align ="left" length="25" bold="true">Total.</text>
+            <text length="15" align="left"></text>
+            <text align ="left" length="10">${ticket.printArticlesCount()}</text>
+            <text align ="right" length="29" bold="true">${ticket.printTotal()}</text>
+        </line>
+	<line></line>
+    #if ($announcement.getAnnouncement())
+ 	<line>
+
+            <text align ="left" length="75" bold="true">${announcement.printAnnouceFirstLine()}</text>
+        </line>
+	<line>
+           <text align ="left" length="75" bold="true">${announcement.printAnnouceSecondLine()}</text>
+        </line>
+     #end
+
+    </ticket>
+    #foreach ($paymentline in $ticket.payments)
+     #if ($paymentline.name == "cash")
+    <opendrawer/>
+     #end
+     #if ($paymentline.name == "cashrefund")
+    <opendrawer/>
+     #end
+    #end
+</output>

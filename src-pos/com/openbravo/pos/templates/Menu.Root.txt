@@ -1,0 +1,53 @@
+//    Openbravo POS is a point of sales application designed for touch screens.
+//    Copyright (C) 2007-2009 Openbravo, S.L.
+//    http://sourceforge.net/projects/openbravopos
+//
+//    This file is part of Openbravo POS.
+//
+//    Openbravo POS is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+//
+//    Openbravo POS is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License
+//    along with Openbravo POS.  If not, see <http://www.gnu.org/licenses/>.
+
+    group = menu.addGroup("Menu.Main");
+    group.addPanel("/com/openbravo/images/mycomputer.png", "Menu.Ticketing", "com.openbravo.pos.sales.JPanelTicketSales");
+
+
+    group = menu.addGroup("Menu.Backoffice");
+    group.addPanel("/com/openbravo/images/bookmark.png", "Menu.TicketCategory", "com.openbravo.pos.panels.JPanelTicketCategory");
+    group.addPanel("/com/openbravo/images/mycomputer.png", "Menu.TicketRefund", "com.openbravo.pos.sales.JPanelTicketEdits");
+    group.addPanel("/com/openbravo/images/kdmconfig.png", "Menu.Users", "com.openbravo.pos.admin.PeoplePanel");
+    group.addPanel("/com/openbravo/images/yast_group_add.png", "Menu.Roles", "com.openbravo.pos.admin.RolesPanel");
+    group.addPanel("/com/openbravo/images/yast_group_add.png", "Menu.Holiday", "com.openbravo.pos.panels.JPanelHoliday");
+    group.addPanel("/com/openbravo/images/yast_group_add.png", "Menu.Show", "com.openbravo.pos.panels.JPanelShow");
+    group.addPanel("/com/openbravo/images/yast_group_add.png", "Menu.Extended", "com.openbravo.pos.panels.JPanelSeats");
+    group.addPanel("/com/openbravo/images/yast_group_add.png", "Menu.Announcement", "com.openbravo.pos.panels.JPanelAnnouncement");
+    group.addPanel("/com/openbravo/images/yast_group_add.png", "Menu.CancelFee", "com.openbravo.pos.panels.JPanelCancel");
+ group.addPanel("/com/openbravo/images/yast_group_add.png", "Menu.Discount", "com.openbravo.pos.panels.JPanelDiscount");
+    submenu = group.addSubmenu("/com/openbravo/images/contents.png", "Menu.Maintenance.Reports", "com.openbravo.pos.forms.MenuStockManagement");
+        submenu.addTitle("Menu.SalesManagement.Reports");
+        submenu.addPanel("/com/openbravo/images/appointment.png", "Menu.AuditTrail", "/com/openbravo/reports/audittrail.bs");
+        submenu.addPanel("/com/openbravo/images/appointment.png", "Menu.ShowCollection", "/com/openbravo/reports/showCollection.bs");
+        submenu.addPanel("/com/openbravo/images/appointment.png", "Menu.ShowCollection", "/com/openbravo/reports/showDetails.bs");
+submenu.addPanel("/com/openbravo/images/appointment.png", "Menu.RefundDetails", "/com/openbravo/reports/refundDetails.bs");
+        submenu = group.addSubmenu("/com/openbravo/images/contents.png", "Menu.Maintenance", "com.openbravo.pos.forms.MenuMaintenance");
+        submenu.addTitle("Menu.Maintenance.POS");
+        submenu.addPanel("/com/openbravo/images/clipart.png", "Menu.Resources", "com.openbravo.pos.admin.ResourcesPanel");
+
+// Deprecated options.
+//        submenu.addTitle("Menu.Maintenance.ERP");
+//        submenu.addExecution("/com/openbravo/images/openbravo.png", "Menu.ERPProducts", "com.openbravo.possync.ProductsSyncCreate");
+//        submenu.addExecution("/com/openbravo/images/openbravo.png", "Menu.ERPOrders", "com.openbravo.possync.OrdersSyncCreate");
+    group = menu.addGroup("Menu.System");
+    group.addChangePasswordAction();
+    group.addPanel("/com/openbravo/images/package_settings.png", "Menu.Configuration", "com.openbravo.pos.config.JPanelConfiguration");
+    group.addPanel("/com/openbravo/images/fileprint.png", "Menu.Printer", "com.openbravo.pos.panels.JPanelPrinter");
+    group.addExitAction();

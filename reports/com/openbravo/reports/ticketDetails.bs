@@ -1,0 +1,80 @@
+//    Openbravo POS is a point of sales application designed for touch screens.
+//    Copyright (C) 2007-2009 Openbravo, S.L.
+//    http://www.openbravo.com/product/pos
+//
+//    This file is part of Openbravo POS.
+//
+//    Openbravo POS is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+//
+//    Openbravo POS is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License
+//    along with Openbravo POS.  If not, see <http://www.gnu.org/licenses/>.
+
+report = new com.openbravo.pos.reports.PanelReportBean();
+
+report.setTitleKey("Menu.TicketDetails");
+report.setReport("/com/openbravo/reports/ticketDetails");
+report.setResourceBundle("com/openbravo/reports/ticketDetails_messages"); 
+
+report.setSentence(" select * from " +
+                    "(SELECT 'a' AS SEQUENCE, 'Normal Booking' AS TYPE, PRODUCTS.NAME AS PRODUCTNAME, "+
+                    "SUM(TICKETLINES.UNITS) AS UNITS, CLOSEDSHOW.HOSTSEQUENCE  AS SHOWNO,TICKETS.SHOWNAME, DATE(CLOSEDSHOW.DATESTART) AS DATENEW, "+
+                    "CLOSEDSHOW.DATESTART AS SHOWDATE "+
+                    "FROM RECEIPTS,TICKETS,TICKETLINES,PRODUCTS,CLOSEDSHOW "+
+                    "WHERE RECEIPTS.ID = TICKETS.ID AND TICKETS.ID = TICKETLINES.TICKET "+
+                    "AND PRODUCTS.ID=TICKETLINES.PRODUCT AND TICKETS.TICKETTYPE=0 AND RECEIPTS.ADVANCEBOOKING = 'N' "+
+                    "AND CLOSEDSHOW.MONEY=RECEIPTS.MONEYSHOW "+
+                    "GROUP BY CLOSEDSHOW.HOSTSEQUENCE, DATE(CLOSEDSHOW.DATESTART),  PRODUCTS.NAME " +
+                    "UNION " +
+                    "SELECT 'b' AS SEQUENCE, 'Advance Booking' AS TYPE,PRODUCTS.NAME AS PRODUCTNAME, SUM(TICKETLINES.UNITS) AS UNITS, CLOSEDSHOW.HOSTSEQUENCE  AS SHOWNO,TICKETS.SHOWNAME, " +
+                    "DATE(CLOSEDSHOW.DATESTART) AS DATENEW, CLOSEDSHOW.DATESTART AS SHOWDATE " +
+                    "FROM RECEIPTS,TICKETS,TICKETLINES,PRODUCTS,CLOSEDSHOW " +
+                    "WHERE RECEIPTS.ID=TICKETS.ID AND TICKETLINES.TICKET= TICKETS.ID AND TICKETLINES.PRODUCT=PRODUCTS.ID AND CLOSEDSHOW.SHOWNAME=TICKETS.SHOWNAME AND RECEIPTS.ADVANCEBOOKING='Y'  AND RECEIPTS.ADVANCEDATE=DATE(CLOSEDSHOW.DATESTART) " +
+                    "GROUP BY  CLOSEDSHOW.HOSTSEQUENCE, DATE(CLOSEDSHOW.DATESTART), PRODUCTS.NAME "+
+                    "UNION " +
+                    "SELECT 'c' AS SEQUENCE, 'Refund' AS TYPE, PRODUCTS.NAME AS PRODUCTNAME, "+
+                    "SUM(TICKETLINES.UNITS) AS UNITS, CLOSEDSHOW.HOSTSEQUENCE  AS SHOWNO,TICKETS.SHOWNAME, DATE(CLOSEDSHOW.DATESTART) AS DATENEW, "+
+                    "CLOSEDSHOW.DATESTART AS SHOWDATE "+
+                    "FROM RECEIPTS,TICKETS,TICKETLINES,PRODUCTS,CLOSEDSHOW "+
+                    "WHERE RECEIPTS.ID = TICKETS.ID AND TICKETS.ID = TICKETLINES.TICKET AND PRODUCTS.ID=TICKETLINES.PRODUCT AND TICKETS.TICKETTYPE=1 "+
+                    "AND CLOSEDSHOW.MONEY=RECEIPTS.MONEYSHOW "+
+                    "AND  CLOSEDSHOW.SHOWNAME=TICKETS.SHOWNAME "+
+                    "GROUP BY CLOSEDSHOW.HOSTSEQUENCE, DATE(CLOSEDSHOW.DATESTART),  PRODUCTS.NAME)t " +
+                    "WHERE ?(QBF_FILTER) "  +
+                    "ORDER BY  DATENEW,  SHOWNO, SEQUENCE " );
+
+report.addParameter("SHOWDATE");
+report.addParameter("SHOWDATE");
+
+paramdates = new com.openbravo.pos.reports.JParamsDatesInterval();
+paramdates.setStartDate(com.openbravo.beans.DateUtils.getToday());
+report.addQBFFilter(paramdates);
+
+report.addField("SEQUENCE", com.openbravo.data.loader.Datas.STRING);
+report.addField("TYPE", com.openbravo.data.loader.Datas.STRING);
+report.addField("PRODUCTNAME", com.openbravo.data.loader.Datas.STRING);
+report.addField("UNITS", com.openbravo.data.loader.Datas.DOUBLE);
+report.addField("SHOWNO", com.openbravo.data.loader.Datas.INT);
+report.addField("SHOWNAME", com.openbravo.data.loader.Datas.STRING);
+report.addField("DATENEW", com.openbravo.data.loader.Datas.TIMESTAMP);
+report.addField("SHOWDATE", com.openbravo.data.loader.Datas.TIMESTAMP);
+
+
+report;
+
+
+
+
+
+
+
+
+
+

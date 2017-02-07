@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Openbravo POS is a point of sales application designed for touch screens.
+    Copyright (C) 2007-2009 Openbravo, S.L.
+    http://sourceforge.net/projects/openbravopos
+
+    This file is part of Openbravo POS.
+
+    Openbravo POS is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Openbravo POS is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Openbravo POS.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<output>
+    <ticket>
+<line></line>
+       <line size="1">
+            <text align ="center" length="42" bold="true">Close Show Report</text>
+        </line>
+        <line></line>
+
+
+        <line>
+            <text length="18">Issue Close Date:</text>
+            <text length="12" align="left">${payments.printSysDate()}</text>
+            <text length="6" align="right">Time:</text>
+	    <text length="8" align="right">${payments.printSysTime()}</text>
+        </line>
+ 	<line>
+            <text length="12">Show Name:</text>
+            <text length="30" align="right">${payments.printShowName()}</text>
+        </line>
+        <line>
+            <text length="12">Show Time:</text>
+            <text length="30" align="right">${payments.printShowStarttime()}-${payments.printShowEndTime()}</text>
+        </line>
+
+        <line>
+            <text>------------------------------------------</text>
+        </line>
+	<line>
+             <text align ="left" length="28" bold="true">Normal Booking</text>
+	</line>
+	<line>
+             <text align ="left" length="20">Ticket</text>
+             <text align ="left" length="4">Qty</text>
+             <text align ="right" length="18">Amount</text>
+        </line>
+ 	<line>
+            <text>------------------------------------------</text>
+        </line>
+ 	#foreach ($line in $payments.getSaleLines())
+
+
+	<line>
+             <text align ="left" length="20">${line.printProductName()}</text>
+             <text align ="left" length="4">${line.printProductCount()}</text>
+             <text align ="right" length="18">${line.printProduct()}</text>
+        </line>
+        #end
+ 	<line></line>
+
+	<line>
+             <text align ="left" length="28" bold="true">Advance Booking</text>
+	</line>
+
+        #foreach ($line in $payments.getAdvSaleLines())
+
+        <line>
+             <text align ="left" length="20">${line.printAdvProductName()}</text>
+             <text align ="left" length="4">${line.printAdvProductCount()}</text>
+             <text align ="right" length="18">${line.printAdvProduct()}</text>
+        </line>
+        #end
+
+	<line></line>
+
+	<line>
+             <text align ="left" length="28" bold="true">Refund</text>
+	</line>
+
+  	#foreach ($line in $payments.getRefSaleLines())
+
+        <line>
+             <text align ="left" length="20">${line.printRefProductName()}</text>
+             <text align ="left" length="4">${line.printRefProductCount()}</text>
+             <text align ="right" length="18">${line.printRefProduct()}</text>
+        </line>
+        #end
+
+      <line>
+            <text>------------------------------------------</text>
+        </line>
+
+        <line>
+            <text align ="left" length="18" bold="true">Total</text>
+            <text align ="right" length="24" bold="true">${payments.printPaymentsTotal()}</text>
+        </line>
+
+        <line></line>
+
+    </ticket>
+</output>
